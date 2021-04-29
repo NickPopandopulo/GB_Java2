@@ -20,7 +20,7 @@ public class Main {
                 new Robot("Beep",3,150)
         };
 
-        Obstacble[] obstacles = {
+        Obstacle[] obstacles = {
                 new Racetrack(),
                 new Wall(),
                 new Wall(),
@@ -30,24 +30,13 @@ public class Main {
 
         for (Competible participant : participants) {
             System.out.println("Participant " + participant + ", let's go!");
-            for (Obstacble obstacle : obstacles) {
+            for (Obstacle obstacle : obstacles) {
                 System.out.println("Obstacle: " + obstacle);
-                if (obstacle instanceof Racetrack) {
-                    participant.run();
-                    if (obstacle.isRunnable(participant.getMaxLength())) {
-                        System.out.println("Success!");
-                    } else {
-                        System.out.println("Fail!");
-                        break;
-                    }
+                if (participant.pass(obstacle)) {
+                    System.out.println("Success!");
                 } else {
-                    participant.jump();
-                    if (obstacle.isJumpble(participant.getMaxHeight())) {
-                        System.out.println("Success!");
-                    } else {
-                        System.out.println("Fail!");
-                        break;
-                    }
+                    System.out.println("Fail!");
+                    break;
                 }
             }
             System.out.println("Participant " + participant + " has finished race!\n");

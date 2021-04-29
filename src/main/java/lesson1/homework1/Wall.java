@@ -2,7 +2,7 @@ package lesson1.homework1;
 
 import java.util.Random;
 
-public class Wall implements Obstacble {
+public class Wall extends Obstacle {
 
     private int height; // м
 
@@ -15,16 +15,6 @@ public class Wall implements Obstacble {
     }
 
     @Override
-    public boolean isRunnable(int maxParticipantLength) {
-        return false;
-    }
-
-    @Override
-    public boolean isJumpble(int maxParticipantHeight) {
-        return maxParticipantHeight >= height;
-    }
-
-    @Override
     public String toString() {
         return "Wall, height " + height + " m";
     }
@@ -32,10 +22,4 @@ public class Wall implements Obstacble {
     public int getHeight() {
         return height;
     }
-
-    public void setHeight(int height) {
-        this.height = height;
-    }
-
-
 }

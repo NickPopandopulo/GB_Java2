@@ -2,7 +2,7 @@ package lesson1.homework1;
 
 import java.util.Random;
 
-public class Racetrack implements Obstacble {
+public class Racetrack extends Obstacle {
 
     private int length; // м
 
@@ -15,16 +15,6 @@ public class Racetrack implements Obstacble {
     }
 
     @Override
-    public boolean isRunnable(int maxParticipantLength) {
-        return maxParticipantLength >= length;
-    }
-
-    @Override
-    public boolean isJumpble(int maxParticipantHeight) {
-        return false;
-    }
-
-    @Override
     public String toString() {
         return "Racetrack, length " + length + " m";
     }
@@ -33,7 +23,4 @@ public class Racetrack implements Obstacble {
         return length;
     }
 
-    public void setLength(int length) {
-        this.length = length;
-    }
 }
